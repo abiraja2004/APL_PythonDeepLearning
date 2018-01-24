@@ -97,18 +97,22 @@ second=input[1]
 third=input[2]
 collection = []
 for d in input:
-    tuple = (first,second,third)
-    collection.append(tuple)
     for y in input:
-        int3=int3+1
-
+        for o in input:
+            if(not((d==y) or (d==o) or (o==y))):
+                tuple = (d,y,o)
+                collection.append(tuple)
 
 
 
 
 for u in collection:
-    print(u)
+    l = u[0]+u[1]+u[2]
+    if l==0:
+        print (u)
 
+
+print(len(collection))
 
 
 print(words)
