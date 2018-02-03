@@ -12,4 +12,3 @@ aTags = parsedCode.find_all('a')
 print(aTags)
 for i in aTags:
     print(i.get('href'))
-

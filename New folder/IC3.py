@@ -1,6 +1,7 @@
-#sentence = input('Give a sentence: ')
-sentence = 'hello world this is my first hello'
+sentence = input('Give a sentence: ')
+#sentence = 'hello world this is my first hello'
 sent = sentence.split()
+sent.sort()
 mydict={}
 for i in sent:
     if i in mydict:
