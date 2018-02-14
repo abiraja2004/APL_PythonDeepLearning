@@ -6,11 +6,13 @@ class Employee():
         self.department = ''
 
 class FullTimeEmployee(Employee):
-
+    bonus = 50000
     def __init__(self):
         super(FullTimeEmployee, self).__init__()
         self._hours = 40
 
+    def addBonus(self,salary):
+        return (salary + self.bonus)
 
     def setHours(self,hours):
         self._hours=hours
@@ -25,17 +27,7 @@ def averageSalary(EmployeeArray):
         for i in EmployeeArray:
             count = count + i.salary
         salary = count/len(EmployeeArray)
-        print(salary)
-
-class Employee():
-    def __init__(self):
-        self.name = ''
-        self.family = ''
-        self.salary = 0
-        self.department = ''
-
-
-
+        print('Average Salary:', salary)
 
 
 
@@ -57,8 +49,10 @@ newEmployee1 = FullTimeEmployee()
 newEmployee1.name = 'Patrick Mahomes'
 newEmployee1.family = 'Wife,Son,Daughter'
 newEmployee1.salary = 3000000
+print(newEmployee1.addBonus(newEmployee1.salary))
 newEmployee1.department = 'Quarterback: Football'
 newEmployee1.setHours(70)
 newEmployee1.getHours()
 employeeArray.append(newEmployee1)
 averageSalary(employeeArray)
+newEmployee = FullTimeEmployee()

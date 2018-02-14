@@ -77,19 +77,21 @@ class LibrarySystem(Librarian,Book):
     def getLibrarian(self,Librarian):
         return self._librarian
 
+#Create Librarian for Library System
+print('New librarian named Alice Cooper is the librarian')
 librarian = Librarian()
 librarian.setName('Alice Cooper')
 
+#Add books to library (can be either Novel or Nonficiton)
+print('Books are added to the library')
 newBook = Novel()
 newBook.name = 'Hunger Games'
 newBook.author = 'Suzanne Collins'
 newBook.pages = 350
+newBook.hero = 'Catniss Everdeen'
+newBook.villain = 'Game Designer'
+newBook.plot = 'Story of 13 disctricts and government corruption within them'
 librarySystem = LibrarySystem(librarian,newBook)
-print(librarySystem.getLibrarian(librarian).getName())
-newBook = Book()
-newBook.name = 'Hunger Games'
-newBook.author = 'Suzanne Collins'
-newBook.pages = 350
 librarySystem.addBookToShelf(newBook,librarySystem.getLibrary())
 newBook = Novel()
 newBook.genre
@@ -100,23 +102,45 @@ newBook.hero = 'Tyrion Lannister'
 newBook.villain = 'Cersei Lannister'
 newBook.plot = 'Game of Thrones is about a battle of 5 kingdoms and trying to get Iron Throne'
 librarySystem.addBookToShelf(newBook,librarySystem.getLibrary())
-for i in librarySystem.getLibrary():
-    print(i.name)
-#bookShelf.append(newBook)
-
-
+nfBook = NonFiction()
+nfBook.name = 'Cracking the Code Interview'
+nfBook.author = 'McDowell'
+nfBook.pages = 500
+nfBook.setType('Academic')
+librarySystem.addBookToShelf(nfBook,librarySystem.getLibrary())
 nfBook = NonFiction()
 nfBook.name = 'The Bible'
 nfBook.author = 'Various'
 nfBook.pages = 900
 nfBook.setType('Religious')
-nfBook.getType()
+librarySystem.addBookToShelf(nfBook,librarySystem.getLibrary())
+print('The books added are: ')
+count = 1
+for i in librarySystem.getLibrary():
+    print(count)
+    count += 1
+    print('Title: ' +i.name + '\n'+ 'Author: ' + i.author)
+#bookShelf.append(newBook)
 
+
+
+studentName = input( librarySystem.getLibrarian(librarian).getName() + ': You are the new student, what is your name: ')
 newStudent = Student()
-newStudent.checkOut(nfBook)
-car = newStudent.getCheckOutList()
-print(len(car))
-for i in car:
+newStudent.setName(studentName)
+done = False
+while(done==False):
+    book = input(librarySystem.getLibrarian(librarian).getName() + ': Hello, ' + newStudent.getName() + ', what book would you like to check out?')
+    shelf = librarySystem.getLibrary()
+    for i in shelf:
+        if(i.name ==book):
+            newStudent.checkOut(i)
+    val = input(librarySystem.getLibrarian(librarian).getName() + ': Are you done using library- Y or N?')
+    if(val=='Y'):
+        done=True
+checkList = newStudent.getCheckOutList()
+
+print(librarySystem.getLibrarian(librarian).getName() + ': Thank you for using Library. You checked out:')
+for i in checkList:
     print(i.name)
 
 
