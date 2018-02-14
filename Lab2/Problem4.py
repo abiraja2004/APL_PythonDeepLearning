@@ -5,7 +5,7 @@ a = np.random.rand(15)
 b=[]
 for i in a:
     b.append(int(round(20*i)))
-
+print('Input Values: ')
 for i in b:
     print(i)
 
@@ -17,10 +17,12 @@ for i in b:
     else:
         mydict[i]=1
 
+print('Number Count: ')
 print(mydict)
 
 count = 0
 longestNum = 0
+
 for i in mydict:
     if(mydict[i]>=count):
         count = mydict[i]
