@@ -1,11 +1,11 @@
 
-
+#Book class for library system
 class Book():
     def __init__(self):
         self.name = 'Default Title'
         self.pages = 100
         self.author = 'Default Author'
-
+#Book Novel and inherited classes
 class Novel(Book):
     def __init__(self):
         super(Book, self).__init__()
@@ -14,6 +14,7 @@ class Novel(Book):
         self.villan = 'Villain'
         self.plot = 'The hero wins'
 
+#book nonfiction and inherted class
 class NonFiction(Book):
     _type = ''
     def __init__(self):
@@ -26,6 +27,7 @@ class NonFiction(Book):
     def getType(self):
         print(self._type)
 
+#Person class
 class Person():
     _name = ''
     def __init__(self):
@@ -37,7 +39,7 @@ class Person():
     def getName(self):
         return self._name
 
-
+#inherited from person
 class Student(Person):
     _checkedOut = []
     def __init__(self):
@@ -59,6 +61,7 @@ class Librarian(Person):
     def notifyLimit(self):
         print('Librarian: You have checked out limit of books')
 
+#Main LIbrary System which is used to utilize the book
 class LibrarySystem(Librarian,Book):
     _bookShelf = []
     _librarian = Librarian
@@ -123,7 +126,7 @@ for i in librarySystem.getLibrary():
 #bookShelf.append(newBook)
 
 
-
+#Student enters name and then checks out books
 studentName = input( librarySystem.getLibrarian(librarian).getName() + ': You are the new student, what is your name: ')
 newStudent = Student()
 newStudent.setName(studentName)
@@ -139,6 +142,7 @@ while(done==False):
         done=True
 checkList = newStudent.getCheckOutList()
 
+#Librarian tells the student what books they checked out
 print(librarySystem.getLibrarian(librarian).getName() + ': Thank you for using Library. You checked out:')
 for i in checkList:
     print(i.name)

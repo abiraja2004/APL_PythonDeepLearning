@@ -1,17 +1,23 @@
+#Contains the contact list
 contact_list=[{"name":"Paul","number":"9134869697","email":"santosh@gmail.com"},
               {"name": "Tony", "number": "8169590423", "email": "king94@gmail.com"},
               {"name": "Kevin", "number": "18004522342", "email": "kingkevin95@yahoo.com"}]
 
+#display contacts
 def displayContactsName(name):
     for i in contact_list:
         if((i["name"])==name):
+            print('You Selected ',name)
             print(i)
 
+#displayContacts Number
 def displayContactsNumber(number):
     for i in contact_list:
         if((i["number"])==number):
+            print('You Selected ', number)
             print(i)
 
+#Edit contact by name
 def editContactByName(name,parameter,value):
     for i in contact_list:
         if((i["name"])==name):
@@ -23,27 +29,31 @@ def editContactByName(name,parameter,value):
                 i["email"] = value
 
 def displayContactList():
+    print('Current contact List:')
     for i in contact_list:
         print(i)
 
 
+#main program and menu
 isValid = False
 while(isValid==False):
     value = input("Click on a value: \n a) Display Contact by Name \n b) Display contact by number \n c) Edit contact by name \n d) Exit")
     if value=='a':
-        print('a')
+        print('You selected Choice a')
         choiceA = input('a) Give Name')
         displayContactsName(choiceA)
         displayContactList()
         #isValid = True
     elif value=='b':
-        print('b')
+        print('You selected Choice b')
         choiceB = input('b) Give Number')
         displayContactsNumber(choiceB)
+        print(' ')
+
         displayContactList()
         #isValid = True
     elif value=='c':
-        print('c')
+        print('You selected Choice c')
         choiceCa = input('a) Give a Name')
         choiceCb = input('a) Which feature to edit \n a) Name \n b) Number \n c) Email')
         choiceCc = input('a) What would you like to change it to: ')
@@ -57,9 +67,7 @@ while(isValid==False):
     else:
         print('choose either a,b,c')
 
-#for i in contact_list:
- #   print(contact_list[0].get("name","none"))
-   # contact_list[0]["name"]="Adrian"
+
 
 
 
