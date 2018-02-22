@@ -80,7 +80,15 @@ print(names2)
 colors = ['navy', 'turquoise', 'darkorange']
 lw = 2
 
-
+mainData2 = []
+names3=[]
+vars3=[]
+x2=[]
+y2=[]
+x3=[]
+y3=[]
+x4=[]
+y4=[]
 
 
 lda = LinearDiscriminantAnalysis(n_components=2)
@@ -94,17 +102,47 @@ for i in X_r2:
     y.append(i[1])
 print(y)
 
-# plt.plot(x,y, 'ro')
-# plt.axis([-5, 5, -2, 2])
-# plt.show()
 
+for i in range(0, len(names2)):
+    if names2[i] == 'Good':
+        print('hi')
+        print(x[i])
+        red = x[i]
+        x2.append(red)
+        y2.append(y[i])
 
-for i in x:
-    plt.plot(x,y,'ro')
+good = len(x2)
+for i in range(0, len(names2)):
+    if names2[i] == 'Average':
+        print('hi')
+        print(x[i])
+        red = x[i]
+        x3.append(red)
+        y3.append(y[i])
+        # y2.append[y[names2.index(i)]]
+average = len(x2)
+for i in range(0, len(names2)):
+    if names2[i] == 'Bad':
+        print('hi')
+        print(x[i])
+        red = x[i]
+        x4.append(red)
+        y4.append(y[i])
+        # y2.append[y[names2.index(i)]]
+bad = len(x2)
+print('print I')
+print(x2)
+print(y2)
 
-t=[-4]
-p=[-1.6]
-plt.plot(t,p,'bo')
+for i in range(0,len(x2)):
+    plt.plot(x2, y2, 'ro')
+
+for i in range(0,len(x3)):
+    plt.plot(x3, y3, 'bo')
+
+for i in range(0,len(x4)):
+    plt.plot(x4, y4, 'go')
+
 plt.axis([-5, 5, -2, 2])
 plt.show()
 
