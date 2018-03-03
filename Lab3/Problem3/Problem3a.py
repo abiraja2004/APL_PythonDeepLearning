@@ -1,3 +1,5 @@
+import nltk
+nltk.download('wordnet')
 from nltk.stem import WordNetLemmatizer
 
 results = []
@@ -8,7 +10,7 @@ with open('textFile') as inputfile:
 print(results)
 
 
-sentence = 'I am paul charles and i like to eat food'
+sentence = 'cats are fat and going to the mall and eating stuff is awesome'
 
-lemmatizer = WordNetLemmatizer(sentence)
-print(lemmatizer)
+lemmatizer = WordNetLemmatizer()
+print(lemmatizer.lemmatize(sentence, pos="a"))
