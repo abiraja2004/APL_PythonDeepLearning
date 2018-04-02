@@ -57,7 +57,7 @@ with tf.Session() as sess:
 
     sess.run(tf.global_variables_initializer())
 
-    writer = tf.summary.FileWriter('./graphs/linear_reg', sess.graph)
+    writer = tf.summary.FileWriter('./graphs/logistic_reg', sess.graph)
 
     # Step 8: train the model
 

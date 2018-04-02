@@ -25,6 +25,8 @@ data = np.asarray([[sheet.row_values(i)[2], sheet.row_values(i)[5]] for i in ran
 n_samples = sheet.nrows - 1
 
 print(data)
+weights = tf.Variable(tf.random_normal([2,3],stdev=0.1),name="weights")
+print(weights)
 
 
 
